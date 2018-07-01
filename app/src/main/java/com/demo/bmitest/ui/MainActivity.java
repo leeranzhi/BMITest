@@ -123,25 +123,24 @@ public class MainActivity extends AppCompatActivity {
             result_content.setText(suggestion);
             mediaPlayer[3].start();
 
-        }
-        if (result >= 18.5 && result <= 23.9) {
+        }else if (result >= 18.5 && result <= 23.9) {
             suggestion = "\tBMI值" + result + "\n\t正常体质";
             result_content.setText(suggestion);
             result_content.setTextColor(Color.parseColor("#3CB371"));
             mediaPlayer[2].start();
-        }
-        if (result >= 24 && result <= 28) {
+        }else if (result >= 24 && result <= 28) {
             suggestion = "\tBMI值" + result + "\n\t偏胖体质";
             result_content.setText(suggestion);
             result_content.setTextColor(Color.parseColor("#FFC0CB"));
             mediaPlayer[0].start();
-        }
-        if (result > 28) {
+        }else if (result > 28) {
             suggestion = "\tBMI值" + result + "\n\t肥胖体质";
             result_content.setText(suggestion);
             result_content.setTextColor(Color.parseColor("#DC143C"));
             mediaPlayer[1].start();
-
+        }else {
+            suggestion="\tBMI值" + result + "\n\t已超出可视范围";
+            result_content.setText(suggestion);
         }
 
     }
