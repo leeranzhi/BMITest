@@ -22,7 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    private MediaPlayer[] mediaPlayer = new MediaPlayer[5];
+    private MediaPlayer[] mediaPlayer = new MediaPlayer[4];
     private EditText user_height, user_weight;
     private Button BMI_calculate, BMI_save, show_view;
     private TextView result_content;
@@ -43,9 +43,11 @@ public class MainActivity extends AppCompatActivity {
         result_content = (TextView) findViewById(R.id.result_content);
 
         initMediaPlayer();
+
         BMI_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String height = user_height.getText().toString();
                 String weight = user_weight.getText().toString();
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy" +
@@ -100,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer[1] = MediaPlayer.create(this, R.raw.ko);
         mediaPlayer[2] = MediaPlayer.create(this, R.raw.yahou);
         mediaPlayer[3] = MediaPlayer.create(this, R.raw.ennenen);
-        mediaPlayer[4] = MediaPlayer.create(this, R.raw.tim);
     }
 
     /**
@@ -156,11 +157,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         for (int i = 0; i <= mediaPlayer.length; i++) {
             if (mediaPlayer[i] != null) {
                 mediaPlayer[i].release();
             }
         }
+        super.onDestroy();
     }
 }
